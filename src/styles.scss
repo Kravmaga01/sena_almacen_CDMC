@@ -1,0 +1,39 @@
+/* You can add global styles to this file, and also import other style files */
+
+:root {
+  --primary-color: #39a900;
+  --primary-color-font : rgb(240, 240, 240) ;
+}
+
+
+
+/* Establece el modelo de caja para todos los elementos en la página, incluyendo los pseudo-elementos :before y :after. También establece los márgenes y el relleno en 0. */
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Establece la fuente y el fondo para el cuerpo de la página. */
+body {
+  font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+  background: #ededed;
+}
+
+
+input,
+button {
+  border: none;
+  outline: none;
+  background: none;
+  font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+}
+
+/* Elimina los bordes y los fondos predeterminados de los campos de entrada y los botones. */
+
+.container{
+  margin: 0 auto;
+  padding: 2rem;
+}

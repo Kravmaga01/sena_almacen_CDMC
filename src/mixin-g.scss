@@ -1,0 +1,24 @@
+
+.sign-in {
+  transition-timing-function: ease-out;
+
+  @include signUpActive {
+    transition-timing-function: ease-in-out;
+    transition-duration: $switchAT;
+    transform: translate3d($formW, 0, 0);
+  }
+}
+
+.sign-up {
+  transform: translate3d($contW * -1, 0, 0);
+
+  @include signUpActive {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@mixin signUpActive {
+  .cont.s--signup & {
+    @content;
+  }
+}

@@ -1,0 +1,27 @@
+
+.main_aside {
+  /* Estilos para el aside principal */
+  position: absolute;
+  top: 0;
+  width: 300px;
+  height: 100vh;
+  background-color: #f5f5f5;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.3);
+  transition: left 0.3s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  /* Estilos para el encabezado del aside */
+  &_header {
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+
+    /* Estilos para el logo en el encabezado */
+    &>#logo {
+      max-width: 100%;
+      height: auto;
+    }
+  }
+}

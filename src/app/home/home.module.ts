@@ -1,0 +1,23 @@
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+
+import { HomeRoutingModule } from './home-routing.module';
+import { HomeComponent } from '../home/home.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { BottonAsideComoponentComponent } from './components/navbar/botton-aside-comoponent/botton-aside-comoponent.component';
+
+
+
+@NgModule({
+  declarations: [
+    HomeComponent,
+    NavbarComponent,
+    BottonAsideComoponentComponent
+  ],
+  imports: [
+    CommonModule,
+  
+    HomeRoutingModule
+  ]
+})
+export class HomeModule { }

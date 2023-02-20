@@ -1,0 +1,268 @@
+// Definir variables
+$contW: 900px; // Ancho del contenedor principal
+$imgW: 260px; // Ancho de la imagen
+$formW: $contW - $imgW; // Ancho del formulario, calculado restando el ancho de la imagen al ancho del contenedor principal
+$switchAT: 1.2s; // Tiempo de animación para la transición entre el formulario de inicio de sesión y el formulario de registro
+
+$inputW: 260px; // Ancho del campo de entrada de texto
+$btnH: 36px; // Altura del botón
+
+$diffRatio: ($contW - $imgW) / $contW; // Calcular la relación de diferencia entre el ancho del contenedor y el ancho de la imagen
+
+// Crear una mixin (función reutilizable) para aplicar estilos solo cuando la clase "cont" tiene la clase adicional "s--signup"
+@mixin signUpActive {
+  .cont.s--signup & {
+    @content;
+  }
+}
+
+// Estilos para la clase "tip"
+.tip {
+  font-size: 20px;
+  margin: 40px auto 50px;
+  text-align: center;
+}
+
+// Estilos para la clase "cont"
+.cont {
+  overflow: hidden;
+  position: relative;
+  width: $contW;
+  height: 550px;
+  margin: 0 auto 100px;
+  background: #fff;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.35);
+}
+
+// Estilos para la clase "form"
+.form {
+  position: relative;
+  width: $formW;
+  height: 100%;
+  transition: transform $switchAT ease-in-out;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-self: center;
+}
+
+// Estilos para la clase "sub-cont"
+.sub-cont {
+  overflow: hidden;
+  position: absolute;
+  left: $formW;
+  top: 0;
+  width: $contW;
+  height: 100%;
+  padding-left: $imgW;
+  background: #fff;
+  transition: transform $switchAT ease-in-out;
+
+  // Aplicar los estilos solo cuando la clase "cont" tiene la clase adicional "s--signup"
+  @include signUpActive {
+    transform: translate3d($formW * -1, 0, 0);
+  }
+}
+
+// Estilos para el botón
+button {
+  display: block;
+  margin: 0 auto;
+  width: $inputW;
+  height: $btnH;
+  border-radius: 30px;
+  color: #fff;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+
+// Estilos para la clase "img"
+.img {
+  overflow: hidden;
+  z-index: 2;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: $imgW;
+  height: 100%;
+  padding-top: 360px;
+
+  // Pseudo-elemento para la imagen
+  &:before {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: $contW;
+    height: 100%;
+    background-image: url("https://1c88cf1c3b.cbaul-cdnwnd.com/521db29f66c3eb4d723eff24f6088fee/200000162-3116331166/reinaana_store2_2.jpg?ph=1c88cf1c3b");
+    background-size: cover;
+    transition: transform $switchAT ease-in-out;
+  }
+
+ /* Este selector agrega un pseudo-elemento después del elemento seleccionado. */
+/* El pseudo-elemento cubre todo el elemento seleccionado con un fondo semitransparente. */
+&:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+/* Este mixin de Sass se aplica solo cuando se agrega la clase "signUpActive" al elemento seleccionado. */
+@include signUpActive {
+  /* Este selector agrega un pseudo-elemento antes del elemento seleccionado. */
+  /* El pseudo-elemento se mueve horizontalmente a una distancia de "formW" definida en otra parte del código. */
+  &:before {
+    transform: translate3d($formW, 0, 0);
+  }
+}
+
+/* Este selector selecciona un elemento con la clase "__text" dentro del elemento seleccionado. */
+&__text {
+  z-index: 2;
+  position: absolute;
+  left: 0;
+  top: 50px;
+  width: 100%;
+  padding: 0 20px;
+  text-align: center;
+  color: #fff;
+  /* Define una transición que se aplicará cuando se cambie la propiedad "transform". */
+  /* La transición se define con una duración de "switchAT" que está definida en otra parte del código. */
+  transition: transform $switchAT ease-in-out;
+
+  /* Este selector selecciona un elemento "h2" dentro del elemento con la clase "__text". */
+  /* Aplica un estilo al elemento "h2". */
+  h2 {
+    margin-bottom: 10px;
+    font-weight: normal;
+  }
+
+  /* Este selector selecciona un elemento "p" dentro del elemento con la clase "__text". */
+  /* Aplica un estilo al elemento "p". */
+  p {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  /* Este selector selecciona un elemento con las clases "m--up" y "signUpActive". */
+  /* Aplica un estilo al elemento cuando ambas clases están presentes. */
+  &.m--up {
+    @include signUpActive {
+      /* Aplica una transformación horizontal al elemento. */
+      /* El elemento se mueve a una distancia de "imgW * 2" definida en otra parte del código. */
+      transform: translateX($imgW * 2);
+    }
+  }
+
+  /* Este selector selecciona un elemento con las clases "m--in" y sin la clase "signUpActive". */
+  /* Aplica un estilo al elemento cuando la clase "m--in" está presente y la clase "signUpActive" no está presente. */
+  &.m--in {
+    /* Aplica una transformación horizontal al elemento. */
+    /* El elemento se mueve a una distancia de "imgW * -2" definida en otra parte del código. */
+    transform: translateX($imgW * -2);
+
+    @include signUpActive {
+      /* Cuando se agrega la clase "signUpActive", el elemento vuelve a su posición original. */
+      transform: translateX(0);
+    }
+  }
+}
+
+  &__btn {
+    overflow: hidden;
+    z-index: 2;
+    position: relative;
+    width: 100px;
+    height: $btnH;
+    margin: 0 auto;
+    background: transparent;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 15px;
+    cursor: pointer;
+
+    &:after {
+      content: "";
+      z-index: 2;
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      border: 2px solid #fff;
+      border-radius: 30px;
+    }
+    &:hover {
+      color: var(--primary-color);
+    }
+
+    span {
+      position: absolute;
+      left: 0;
+      top: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: 100%;
+      transition: transform $switchAT;
+
+      &.m--in {
+        transform: translateY($btnH * -2);
+
+        @include signUpActive {
+          transform: translateY(0);
+        }
+      }
+
+      &.m--up {
+        @include signUpActive {
+          transform: translateY($btnH * 2);
+        }
+      }
+    }
+  }
+}
+
+h2 {
+  width: 100%;
+  font-size: 26px;
+  text-align: center;
+}
+
+label {
+  display: block;
+  width: $inputW;
+  margin: 25px auto 0;
+  text-align: center;
+
+  span {
+    font-size: 12px;
+    color: #cfcfcf;
+    text-transform: uppercase;
+  }
+}
+
+input {
+  display: block;
+  width: 100%;
+  margin-top: 5px;
+  padding-bottom: 5px;
+  font-size: 16px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+  text-align: center;
+}
+
+.submit {
+  margin-top: 40px;
+  margin-bottom: 20px;
+  background-color: var(--primary-color);
+  text-transform: uppercase;
+}
+
