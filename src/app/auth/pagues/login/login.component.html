@@ -1,23 +1,22 @@
-
 <section class="container">
   <section class="cont">
    
-    <div class="form sign-in">
+    <form class="form sign-in">
      <!-- <figure>
       <img src="https://sena.edu.co/Style%20Library/alayout/images/logoSena.png" width="100%" height="100%" alt="">
      </figure> -->
       <h2>Welcome back,</h2>
       <label>
         <span>Email</span>
-        <input type="email" />
+        <input type="email" [(ngModel)]="loginForm.email" name="email" required/>
       </label>
       <label>
         <span>Password</span>
-        <input type="password" />
+        <input type="password" [(ngModel)]="loginForm.password" name="password" required/>
       </label>
-      <button type="button" class="submit">Sign In</button>
-    </div>
-    <div class="sub-cont">
+      <button type="button" class="submit" (click)="signIn()">Sign In</button>
+    </form>
+    <form class="sub-cont">
       <div class="img">
         <div class="img__text m--up">
           <h2>Forgot your password?</h2>
@@ -28,24 +27,28 @@
           <p>If you already has an account, just sign in. We've missed you!</p>
         </div>
         <div class="img__btn">
-          <span class="m--up">recover</span>
-          <span class="m--in">Sign In</span>
+          <span class="m--up" (click)="forgotPassword()">recover</span>
+          <span class="m--in" (click)="toggleSignUp()">Sign In</span>
         </div>
       </div>
       <div class="form sign-up">
         <h2>Time to feel like home,</h2>
         <label>
           <span>Name</span>
-          <input type="text" />
+          <input type="text" [(ngModel)]="signUpForm.name" name="name" required/>
         </label>
         <label>
           <span>Email</span>
-          <input type="email" />
+          <input type="email" [(ngModel)]="signUpForm.email" name="email" required/>
+        </label>
+        <label>
+          <span>Password</span>
+          <input type="password" [(ngModel)]="signUpForm.password" name="password" required/>
         </label>
       
-        <button type="button" class="submit">Recovery</button>
+        <button type="button" class="submit" (click)=" forgotPassword()">Register</button>
       </div>
-    </div>
+    </form>
   
   
   </section>
