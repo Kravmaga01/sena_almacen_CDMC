@@ -1,5 +1,5 @@
 import { AfterViewInit, Component } from '@angular/core';
-import { NgForm } from '@angular/forms';
+
 
 @Component({
   selector: 'app-login',
