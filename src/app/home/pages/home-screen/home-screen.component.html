@@ -1,0 +1,29 @@
+<div class="container">
+
+    <div class="row">
+      <div class="col-lg-10 col-md-8 col-sm-12 mx-auto my-5">
+        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+  
+    <div class="carousel-inner">
+      <div class="carousel-item" [class.active]="currentSlide === 0">
+        <img src="https://www.sena.edu.co/es-co/Eventos/Valle_Eliminatoria_Festival_%20cancion_16102020.jpg" class="d-block w-100" alt="...">
+      </div>
+      <div class="carousel-item" [class.active]="currentSlide === 1">
+        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh4Z-CowY4d9ipREAoSysA0W32oRPL_42XIWrhTOI7I67wgTHcu7C9OVxrMMqI4OKNdF8vepYvX0BpkIbsQZEdw64EM270tXtwiRXGjWDFUs73v-xSmVELBSr30hRdyS-XtJ9vdqGGIw5SPwcBjENZJG8kh5CkoUO5Mgshh7WynPIBrKP_oX24H9ESrYA/s630/anigif.gif" class="d-block w-100" alt="...">
+      </div>
+      <div class="carousel-item" [class.active]="currentSlide === 2">
+        <img src="https://1.bp.blogspot.com/-AhER2gQB_sY/YOdlDg66RwI/AAAAAAAAyQE/KnRQLniGqxQcYQhWrvNRm7NsOtERLQglwCLcBGAsYHQ/s2048/verano-24.jpg" class="d-block w-100" alt="...">
+      </div>
+    </div>
+    <a class="carousel-control-prev" role="button" data-slide="prev" (click)="previousSlide()">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next"  role="button" data-slide="next" (click)="nextSlide()">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+  </div>
+      </div>
+    </div>
+  </div>

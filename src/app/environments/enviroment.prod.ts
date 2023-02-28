@@ -2,7 +2,7 @@
 
 export const environment = {
     production: true,
-    apiUrl: 'https://api.miservidor.com',
+    apiUrl: 'localhost:3000/api/v1',
     // otras variables de configuración de producción
   };
   

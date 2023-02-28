@@ -1,4 +1,6 @@
 import { AfterViewInit, Component } from '@angular/core';
+import { User } from '../../models/user.interface';
+import { AuthService } from '../../service/auth.service';
 
 
 @Component({
@@ -7,8 +9,19 @@ import { AfterViewInit, Component } from '@angular/core';
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements AfterViewInit {
-  loginForm: any = {};
-  signUpForm: any = {};
+  constructor(
+    private readonly auth: AuthService,
+  ){}
+  loginForm: User = {
+    name: '',
+    email: '',
+    password: ''
+  };
+  signUpForm: User = {
+    name: '',
+    email: '',
+    password: ''
+  };
   showSignUp: boolean = false; // Aquí se declara la propiedad
   ngAfterViewInit(): void {
     const imgBtn = document.querySelector('.img__btn');
@@ -23,7 +36,7 @@ export class LoginComponent implements AfterViewInit {
 
   signIn(): void {
     // Aquí debes implementar la lógica para autenticar al usuario.
-    console.log('User signed in', this.loginForm);
+    this.auth.login(this.loginForm)
   }
 
   forgotPassword(): void {

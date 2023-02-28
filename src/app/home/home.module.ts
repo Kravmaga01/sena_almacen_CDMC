@@ -3,16 +3,24 @@ import { CommonModule } from '@angular/common';
 
 import { HomeRoutingModule } from './home-routing.module';
 import { HomeComponent } from '../home/home.component';
-import { NavbarComponent } from './components/navbar/navbar.component';
-import { BottonAsideComoponentComponent } from './components/navbar/botton-aside-comoponent/botton-aside-comoponent.component';
+
+import { NavBarComponent } from './components/nav-bar/nav-bar.component';
+import { StoreComponent } from './pages/store/store.component';
+import { SlectionCardComponent } from './pages/store/pages/slection-card/slection-card.component';
+import { InventoryComponent } from './pages/store/pages/inventory/inventory.component';
+import { HomeScreenComponent } from './pages/home-screen/home-screen.component';
+
 
 
 
 @NgModule({
   declarations: [
     HomeComponent,
-    NavbarComponent,
-    BottonAsideComoponentComponent
+    NavBarComponent,
+    StoreComponent,
+    SlectionCardComponent,
+    InventoryComponent,
+    HomeScreenComponent,
   ],
   imports: [
     CommonModule,

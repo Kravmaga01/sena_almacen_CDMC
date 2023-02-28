@@ -4,6 +4,8 @@ import { AuthRoutingModule } from './auth-routing.module';
 import { AuthComponent } from './auth.component';
 import { FormsModule } from '@angular/forms';
 import { LoginComponent } from './pagues/login/login.component';
+
+import { HttpClientModule } from '@angular/common/http';
 import { AuthService } from './service/auth.service';
 @NgModule({
   declarations: [
@@ -13,11 +15,13 @@ import { AuthService } from './service/auth.service';
   imports: [
     CommonModule,
     AuthRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers:[
     AuthService
-  ]
+  ],
+
  
 })
 export class AuthModule { }
