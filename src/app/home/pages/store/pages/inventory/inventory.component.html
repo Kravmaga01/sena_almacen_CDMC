@@ -1,1 +1,44 @@
-<p>inventory works!</p>
+<section class="container">
+    <form class="d-flex">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+    </form>
+    <br>
+    <hr>
+    <h3>
+        Table name 
+    </h3>
+
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">First</th>
+            <th scope="col">Last</th>
+            <th scope="col">Handle</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">1</th>
+            <td><input type="text" class="form-control" [(ngModel)]="data[0].first" [disabled]="!isEditing"></td>
+            <td><input type="text" class="form-control" [(ngModel)]="data[0].last" [disabled]="!isEditing"></td>
+            <td><input type="text" class="form-control" [(ngModel)]="data[0].handle" [disabled]="!isEditing"></td>
+          </tr>
+          <tr>
+            <th scope="row">2</th>
+            <td><input type="text" class="form-control" [(ngModel)]="data[1].first" [disabled]="!isEditing"></td>
+            <td><input type="text" class="form-control" [(ngModel)]="data[1].last" [disabled]="!isEditing"></td>
+            <td><input type="text" class="form-control" [(ngModel)]="data[1].handle" [disabled]="!isEditing"></td>
+          </tr>
+          <tr>
+            <th scope="row">3</th>
+            <td colspan="2"><input type="text" class="form-control" [(ngModel)]="data[2].first" [disabled]="!isEditing"></td>
+            <td><input type="text" class="form-control" [(ngModel)]="data[2].handle" [disabled]="!isEditing"></td>
+          </tr>
+        </tbody>
+      </table>
+      <br>
+      <button class="btn btn-primary" (click)="editTable()" [hidden]="isEditing">Editar</button>
+      <button class="btn btn-success" (click)="saveTable()" [hidden]="!isEditing">Guardar</button>
+</section>

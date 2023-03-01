@@ -9,6 +9,7 @@ import { StoreComponent } from './pages/store/store.component';
 import { SlectionCardComponent } from './pages/store/pages/slection-card/slection-card.component';
 import { InventoryComponent } from './pages/store/pages/inventory/inventory.component';
 import { HomeScreenComponent } from './pages/home-screen/home-screen.component';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -24,7 +25,7 @@ import { HomeScreenComponent } from './pages/home-screen/home-screen.component';
   ],
   imports: [
     CommonModule,
-  
+    FormsModule,
     HomeRoutingModule
   ]
 })
