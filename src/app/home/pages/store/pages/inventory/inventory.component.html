@@ -8,37 +8,32 @@
     <h3>
         Table name 
     </h3>
+    
 
     <table class="table">
-        <thead>
-          <tr>
-            <th scope="col">#</th>
-            <th scope="col">First</th>
-            <th scope="col">Last</th>
-            <th scope="col">Handle</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td><input type="text" class="form-control" [(ngModel)]="data[0].first" [disabled]="!isEditing"></td>
-            <td><input type="text" class="form-control" [(ngModel)]="data[0].last" [disabled]="!isEditing"></td>
-            <td><input type="text" class="form-control" [(ngModel)]="data[0].handle" [disabled]="!isEditing"></td>
-          </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td><input type="text" class="form-control" [(ngModel)]="data[1].first" [disabled]="!isEditing"></td>
-            <td><input type="text" class="form-control" [(ngModel)]="data[1].last" [disabled]="!isEditing"></td>
-            <td><input type="text" class="form-control" [(ngModel)]="data[1].handle" [disabled]="!isEditing"></td>
-          </tr>
-          <tr>
-            <th scope="row">3</th>
-            <td colspan="2"><input type="text" class="form-control" [(ngModel)]="data[2].first" [disabled]="!isEditing"></td>
-            <td><input type="text" class="form-control" [(ngModel)]="data[2].handle" [disabled]="!isEditing"></td>
-          </tr>
-        </tbody>
-      </table>
-      <br>
-      <button class="btn btn-primary" (click)="editTable()" [hidden]="isEditing">Editar</button>
-      <button class="btn btn-success" (click)="saveTable()" [hidden]="!isEditing">Guardar</button>
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">First</th>
+          <th scope="col">Last</th>
+          <th scope="col">Handle</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of data; let i = index">
+          <th scope="row">{{ i + 1 }}</th>
+          <td><input type="text" class="form-control" [(ngModel)]="item.first" [disabled]="!isEditing"></td>
+          <td><input type="text" class="form-control" [(ngModel)]="item.last" [disabled]="!isEditing"></td>
+          <td><input type="text" class="form-control" [(ngModel)]="item.handle" [disabled]="!isEditing"></td>
+          <td>
+            <button type="button" class="btn btn-danger" (click)="deleteRow(i)" [disabled]="!isEditing">Eliminar</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <br>
+    <button class="btn btn-primary" (click)="editTable()" [hidden]="isEditing">Editar</button>
+    <button class="btn btn-success" (click)="saveTable()" [hidden]="!isEditing">Guardar</button>
+    <button class="btn btn-info" (click)="addRow()" [hidden]="!isEditing">Agregar</button>
 </section>
