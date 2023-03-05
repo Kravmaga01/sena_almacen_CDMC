@@ -10,6 +10,8 @@ import { SlectionCardComponent } from './pages/store/pages/slection-card/slectio
 import { InventoryComponent } from './pages/store/pages/inventory/inventory.component';
 import { HomeScreenComponent } from './pages/home-screen/home-screen.component';
 import { FormsModule } from '@angular/forms';
+import {InventaryDataService} from './services/store/inventary.service';
+
 
 
 
@@ -22,11 +24,16 @@ import { FormsModule } from '@angular/forms';
     SlectionCardComponent,
     InventoryComponent,
     HomeScreenComponent,
+   
   ],
   imports: [
     CommonModule,
     FormsModule,
     HomeRoutingModule
+  ],
+  providers: [
+    InventaryDataService
   ]
+  
 })
 export class HomeModule { }

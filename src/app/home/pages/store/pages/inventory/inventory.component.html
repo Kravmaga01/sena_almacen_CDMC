@@ -10,43 +10,36 @@
   </h3>
 
   <table class="table">
-   
-    
-    <thead>
-      <tr>
-        <th scope="col">#</th>
-        <th scope="col">First</th>
-        <th scope="col">Last</th>
-        <th scope="col">Handle</th>
-        <th></th>
-      </tr>
-    </thead>
-    
-    <tbody>
-      <tr *ngFor="let item of data; let i = index">
-        <th scope="row">{{ i + 1 }}</th>
-        <td><input type="text" class="form-control" [(ngModel)]="item.first" [disabled]="!isEditing"></td>
-        <td><input type="text" class="form-control" [(ngModel)]="item.last" [disabled]="!isEditing"></td>
-        <td><input type="text" class="form-control" [(ngModel)]="item.handle" [disabled]="!isEditing"></td>
-        <td>
-          <button type="button" class="btn btn-danger" (click)="deleteRow(i)" [disabled]="!isEditing">Eliminar</button>
-        </td>
-      </tr>
-    </tbody>
-    <div class="chart-container">
-      <canvas #myChart></canvas>
-    </div>
-    <br>
-    <button class="btn btn-primary" (click)="updateChart()">Actualizar gráfica</button>  
-  </table>
-  <br>
-  <button class="btn btn-primary" (click)="editTable()" [hidden]="isEditing">Editar</button>
-  <button class="btn btn-success" (click)="saveTable()" [hidden]="!isEditing">Guardar</button>
-  <button class="btn btn-info" (click)="addRow()" [hidden]="!isEditing">Agregar</button>
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Color</th>
+      <th scope="col">Cantiadad</th>
+      <th scope="col">Cantiadad en prestamo</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of data; let i = index">
+      <th scope="row">{{ i + 1 }}</th>
+      <td><input type="text" class="form-control" [(ngModel)]="item.name" [disabled]="!isEditing"></td>
+      <td><input type="text" class="form-control" [(ngModel)]="item.color" [disabled]="!isEditing"></td>
+      <td><input type="text" class="form-control" [(ngModel)]="item.availableQuantity" [disabled]="!isEditing"></td>
+      <td><input type="text" class="form-control" [(ngModel)]="item.borrowedQuantity" [disabled]="!isEditing"></td>
+      <td>
+        <button type="button" class="btn btn-danger" (click)="deleteRow(i)" [disabled]="!isEditing">Eliminar</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
 
-  <div class="chart-container" style="position: relative; height:400px; width:100%">
-    <canvas id="myChart"></canvas>
-  </div>
+<div  class="chart-container">
+  <canvas #myChart style="width: 100%; height: 100%;"></canvas>
+</div>
 
-  
+<button class="btn btn-primary m-2" (click)="editTable()" [hidden]="isEditing">Editar</button> 
+<button class="btn btn-primary m-2"  (click)="toggleChart()" >Mostrar gráfica</button>
+<button class="btn btn-success m-2" (click)="saveTable()" [hidden]="!isEditing">Guardar</button>
+<button class="btn btn-info m-2" (click)="addRow()" [hidden]="!isEditing">Agregar</button>
 </section>

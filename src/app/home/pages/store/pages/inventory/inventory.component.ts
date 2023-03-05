@@ -1,21 +1,32 @@
-import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Chart } from 'chart.js';
+import { Cuero } from 'src/app/home/models/strore_models/cuero';
+import { InventaryDataService } from '../../../../services/store/inventary.service';
 
 @Component({
   selector: 'app-inventory',
   templateUrl: './inventory.component.html',
   styleUrls: ['./inventory.component.scss']
 })
-export class InventoryComponent implements AfterViewInit {
-  data = [
-    { id: 1, first: 'Mark', last: 'Otto', handle: '@mdo' },
-    { id: 2, first: 'Jacob', last: 'Thornton', handle: '@fat' },
-    { id: 3, first: '', last: 'Larry the Bird', handle: '@twitter' }
-  ];
-  isEditing = false;
+export class InventoryComponent implements AfterViewInit, OnInit {
+  data: Cuero[] = [];
+  constructor(private readonly inventoryData: InventaryDataService) {
+   
+  }
+  ngOnInit(): void {
+    this.data = this.inventoryData.getData();
+  }
+  isEditing:boolean = false;
+  
+
+  showChart:boolean = false;
+
+  toggleChart() {
+    this.showChart = !this.showChart;
+  }
 
   chartData = {
-    labels: ['Agregar', 'Eliminar', 'Actualización'],
+    labels: [' disponible', 'Prestamo', 'Bajas'],
     datasets: [
       {
         label: 'Cambios de tabla',
@@ -26,6 +37,7 @@ export class InventoryComponent implements AfterViewInit {
       }
     ]
   };
+
 
   @ViewChild('myChart') private chartRef!: ElementRef;
   private chart: Chart | undefined;
@@ -48,31 +60,31 @@ export class InventoryComponent implements AfterViewInit {
   }
 
   addRow() {
-    this.data.push({ id: this.data.length + 1, first: '', last: '', handle: '' });
+    this.data.push({ id: this.data.length + 1, name: '', color: '',  availableQuantity: 0,borrowedQuantity:0 });
     this.updateChart();
   }
 
   deleteRow(index: number) {
-    this.data.splice(index, 1);
+    this.inventoryData.deleteData(index);
     this.updateChart();
   }
 
   updateChart() {
-    let added = 0;
+    let added = 0 ;
     let deleted = 0;
     let updated = 0;
-
+  
     // Cálculo de los valores para la gráfica.
     for (const item of this.data) {
       if (item.id > this.chartData.datasets[0].data.length) {
         added++;
-      } else if (item.id < 0) {
+      } else if (!this.chartData.datasets[0].data[item.id - 1]) {
         deleted++;
-      } else if (item.id > 0 && (item.first !== '' || item.last !== '' || item.handle !== '')) {
+      } else if (item.name !== '' || item.color !== '' || item.availableQuantity !== 0  || item.borrowedQuantity!== 0) {
         updated++;
       }
     }
-
+  
     // Actualización de los valores de la gráfica.
     this.chartData.datasets[0].data[0] = added;
     this.chartData.datasets[0].data[1] = deleted;
