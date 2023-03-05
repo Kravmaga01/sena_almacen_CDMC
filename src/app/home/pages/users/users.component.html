@@ -1,0 +1,33 @@
+<section class="container">
+    <h3>Tabla de Usuarios</h3>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Foto</th>
+          <th>Nombre</th>
+          <th>Correo</th>
+          <th>Rol</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let usuario of usuarios; let i = index">
+          <td><img [src]="usuario.foto"></td>
+          <td><input type="text" class="form-control" [(ngModel)]="usuario.nombre" [disabled]="!isEditing"></td>
+          <td><input type="text" class="form-control" [(ngModel)]="usuario.correo" [disabled]="!isEditing"></td>
+          <td>
+            <select class="form-control" [(ngModel)]="usuario.rol" [disabled]="!isEditing">
+              <option value="admin">Admin</option>
+              <option value="user">User</option>
+            </select>
+          </td>
+          <td>
+            <button type="button" class="btn btn-danger" (click)="eliminarUsuario(i)" [disabled]="!isEditing">Eliminar</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <button class="btn btn-primary m-2" (click)="editarTabla()" [hidden]="isEditing">Editar</button> 
+    <button class="btn btn-success m-2" (click)="guardarTabla()" [hidden]="!isEditing">Guardar</button>
+    <button class="btn btn-info m-2" (click)="agregarUsuario()" [hidden]="!isEditing">Agregar</button>
+  </section>

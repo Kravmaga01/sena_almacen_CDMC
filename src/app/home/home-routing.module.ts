@@ -6,27 +6,30 @@ import { InventoryComponent } from './pages/store/pages/inventory/inventory.comp
 import { SlectionCardComponent } from './pages/store/pages/slection-card/slection-card.component';
 import { ProductsComponent } from './pages/store/products/products.component';
 import { StoreComponent } from './pages/store/store.component';
+import { AdministracionUsuariosComponent } from './pages/users/users.component';
+import { RequestsSelectionComponent } from './pages/request/pages/requests-selection/requests-selection.component';
+import { WarehouseRequestComponent } from './pages/warehouse-request/warehouse-request.component';
 
 const routes: Routes = [
   {
     path: '',
     component: HomeComponent,
     children: [
-      
-    {
-      path:'information',
-      component: HomeScreenComponent
-    },
+      {
+        path: 'information',
+        component: HomeScreenComponent,
+      },
+
       {
         path: 'store',
         component: StoreComponent,
         children: [
           {
-            path: 'Create',
+            path: 'create',
             component: ProductsComponent,
           },
           {
-            path: 'Store-selection',
+            path: 'store-selection',
             component: SlectionCardComponent,
           },
           {
@@ -34,12 +37,27 @@ const routes: Routes = [
             component: InventoryComponent,
           },
           {
+            path: 'requests-selection',
+            component: RequestsSelectionComponent,
+          },
+          {
+            path: 'solicitudes',
+            component:WarehouseRequestComponent
+            
+          },
+          {
             path: '**',
             pathMatch: 'full',
-            redirectTo: 'Store-selection',
+            redirectTo: 'store-selection',
           },
         ],
       },
+
+      {
+        path: 'users',
+        component: AdministracionUsuariosComponent,
+      },
+
       {
         path: '**',
         pathMatch: 'full',

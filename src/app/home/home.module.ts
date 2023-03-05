@@ -11,6 +11,10 @@ import { InventoryComponent } from './pages/store/pages/inventory/inventory.comp
 import { HomeScreenComponent } from './pages/home-screen/home-screen.component';
 import { FormsModule } from '@angular/forms';
 import {InventaryDataService} from './services/store/inventary.service';
+import { GraphTableComponent } from './pages/store/pages/inventory/component/graph-table/graph-table.component';
+import { AdministracionUsuariosComponent } from './pages/users/users.component';
+import { RequestsSelectionComponent } from './pages/request/pages/requests-selection/requests-selection.component';
+import { WarehouseRequestComponent } from './pages/warehouse-request/warehouse-request.component';
 
 
 
@@ -24,6 +28,10 @@ import {InventaryDataService} from './services/store/inventary.service';
     SlectionCardComponent,
     InventoryComponent,
     HomeScreenComponent,
+    GraphTableComponent,
+    AdministracionUsuariosComponent,
+    RequestsSelectionComponent,
+    WarehouseRequestComponent,
    
   ],
   imports: [

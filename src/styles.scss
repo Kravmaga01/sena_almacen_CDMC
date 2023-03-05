@@ -63,3 +63,59 @@ button {
   margin: 0 auto;
   padding: 2rem;
 }
+
+
+
+
+/* estilo para las cards de selección*/
+
+%effec-boder-radius {
+  border-radius: 10% ;
+}
+.container-cards {
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 5rem;
+      min-height: 100vh;
+
+
+  .card-ad-overlay {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background-color: rgba(0,0,0,0.5);
+      opacity: 0;
+      transition: opacity 0.2s ease-in-out;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 2rem;
+      color: white;
+      transition:  ease-in-out 0.8s;
+      @extend %effec-boder-radius;
+  }
+
+  .card:hover .card-ad-overlay {
+      opacity: 1;
+      @extend %effec-boder-radius;
+    }
+
+
+    .card-ad-text {
+      font-weight: bold;
+      text-align: center;
+    }
+  
+  
+  article{
+      box-shadow: 50px -10px var(--primary-color);
+      @extend %effec-boder-radius;
+  }
+
+
+}

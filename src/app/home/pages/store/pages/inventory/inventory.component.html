@@ -1,4 +1,4 @@
-<section class="container">
+<section class="container table-responsive">
   <form class="d-flex">
     <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
     <button class="btn btn-outline-success" type="submit">Search</button>
@@ -9,7 +9,7 @@
     Table name 
   </h3>
 
-  <table class="table">
+  <table class="table table-striped table-hover">
   <thead>
     <tr>
       <th scope="col">ID</th>
@@ -34,9 +34,7 @@
   </tbody>
 </table>
 
-<div  class="chart-container">
-  <canvas #myChart style="width: 100%; height: 100%;"></canvas>
-</div>
+<app-graph-table></app-graph-table>
 
 <button class="btn btn-primary m-2" (click)="editTable()" [hidden]="isEditing">Editar</button> 
 <button class="btn btn-primary m-2"  (click)="toggleChart()" >Mostrar gráfica</button>
