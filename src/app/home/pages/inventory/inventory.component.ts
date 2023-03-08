@@ -1,7 +1,8 @@
 import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Chart } from 'chart.js';
 import { Cuero } from 'src/app/home/models/strore_models/cuero';
-import { InventaryDataService } from '../../../../services/store/inventary.service';
+import { InventaryDataService } from '../../services/store/inventary.service';
+
 
 @Component({
   selector: 'app-inventory',

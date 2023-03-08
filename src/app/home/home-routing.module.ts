@@ -2,13 +2,15 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home.component';
 import { HomeScreenComponent } from './pages/home-screen/home-screen.component';
-import { InventoryComponent } from './pages/store/pages/inventory/inventory.component';
-import { SlectionCardComponent } from './pages/store/pages/slection-card/slection-card.component';
-import { ProductsComponent } from './pages/store/products/products.component';
+import { InventoryComponent } from './pages/inventory/inventory.component';
+import { RequestsSelectionComponent } from './pages/requests-selection/requests-selection.component';
+import { SlectionCardComponent } from './pages/selection-card/slection-card.component';
+
 import { StoreComponent } from './pages/store/store.component';
 import { AdministracionUsuariosComponent } from './pages/users/users.component';
-import { RequestsSelectionComponent } from './pages/request/pages/requests-selection/requests-selection.component';
 import { WarehouseRequestComponent } from './pages/warehouse-request/warehouse-request.component';
+import { MaterialRequestFormComponentComponent } from './pages/material-request-form-component/material-request-form-component.component';
+import { RejectedRequestsComponentComponent } from './pages/rejected-requests-component/rejected-requests-component.component';
 
 const routes: Routes = [
   {
@@ -24,10 +26,7 @@ const routes: Routes = [
         path: 'store',
         component: StoreComponent,
         children: [
-          {
-            path: 'create',
-            component: ProductsComponent,
-          },
+         
           {
             path: 'store-selection',
             component: SlectionCardComponent,
@@ -44,6 +43,14 @@ const routes: Routes = [
             path: 'solicitudes',
             component:WarehouseRequestComponent
             
+          },
+          {
+            path: 'create-solicitud',
+            component: MaterialRequestFormComponentComponent,
+          },
+          {
+            path: 'reject-solicitud',
+            component: RejectedRequestsComponentComponent,
           },
           {
             path: '**',

@@ -1,0 +1,60 @@
+<section class=" container  border  " >
+    <form>
+        <div class="mb-3">
+          <label for="nombreProfesor" class="form-label">Nombre del profesor</label>
+          <input type="text" class="form-control" id="nombreProfesor" [(ngModel)]="nombreProfesor" name="nombreProfesor">
+        </div>
+        <div class="mb-3">
+          <label for="ficha" class="form-label">Ficha</label>
+          <input type="text" class="form-control" id="ficha" [(ngModel)]="ficha" name="ficha">
+        </div>
+        <div class="mb-3">
+          <label for="descripcion" class="form-label">Descripción</label>
+          <textarea class="form-control" id="descripcion" [(ngModel)]="descripcion" name="descripcion"></textarea>
+        </div>
+        <div class="mb-3">
+          <label for="material" class="form-label">Material</label>
+          <select class="form-select" id="material" [(ngModel)]="materialSeleccionado" name="materialSeleccionado">
+            <option value="" disabled selected>Selecciona un material</option>
+            <option *ngFor="let material of materiales" [value]="material">{{ material }}</option>
+          </select>
+        </div>
+        <div class="mb-3">
+          <label for="cantidad" class="form-label">Cantidad</label>
+          <input type="number" class="form-control" id="cantidad" [(ngModel)]="cantidad" name="cantidad">
+        </div>
+    
+        <div class="mb-3">
+          <label for="descripcionMaterial" class="form-label">Descripción del material</label>
+          <textarea class="form-control" id="descripcionMaterial" [(ngModel)]="descripcionMaterial" name="descripcionMaterial"></textarea>
+        </div>
+        <div class="mb-3">
+          <button type="button" class="btn btn-primary" (click)="agregarMaterial()">Agregar material</button>
+        </div>
+        <table class="table  table-striped table-hover  table-responsive table-bordered">
+            <thead>
+              <tr>
+                <th>Material</th>
+                <th>Cantidad</th>
+                <th>Descripción</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let material of materialesAgregados">
+                <td>{{ material.material }}</td>
+                <td>{{ material.cantidad }}</td>
+                <td>{{ material.descripcion }}</td>
+              </tr>
+            </tbody>
+          </table>
+    </form>
+
+    <div class="">
+        <button type="submit" class="btn btn-success">Enviar</button>
+     </div>
+    <div class="">
+        <button type="submit" class="btn btn-danger">Cancelar</button>
+    </div>
+      
+      
+</section>

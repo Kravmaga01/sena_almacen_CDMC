@@ -1,10 +1,12 @@
 .navbar_home{
     background-color: var(--primary-color);
 }
-
-a:hover{
-        border-radius: 90%;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);   
+a{
+  
+  &:hover{
+          border-radius: 90%;
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);   
+  }
 }
 
 .d-flex {
