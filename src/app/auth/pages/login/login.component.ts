@@ -9,20 +9,20 @@ import { AuthService } from '../../service/auth.service';
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements AfterViewInit {
-  constructor(
-    private readonly auth: AuthService,
-  ){}
   loginForm: User = {
-    name: '',
     email: '',
-    password: ''
+    password: '',
+    name: ''
   };
   signUpForm: User = {
-    name: '',
     email: '',
-    password: ''
+    password: '',
+    name: ''
   };
-  showSignUp: boolean = false; // Aquí se declara la propiedad
+  showSignUp: boolean = false;
+
+  constructor(private readonly auth: AuthService) {}
+
   ngAfterViewInit(): void {
     const imgBtn = document.querySelector('.img__btn');
     const cont = document.querySelector('.cont');
@@ -35,13 +35,15 @@ export class LoginComponent implements AfterViewInit {
   }
 
   signIn(): void {
-    // Aquí debes implementar la lógica para autenticar al usuario.
-    this.auth.login(this.loginForm)
+    this.auth.signIn(this.loginForm);
+  }
+
+  signUp(): void {
+    this.auth.signUp(this.signUpForm);
   }
 
   forgotPassword(): void {
-    // Aquí debes implementar la lógica para recuperar la contraseña.
-    console.log('Forgot password', this.loginForm.email);
+    // Implementa la lógica para recuperar la contraseña si es necesario
   }
 
   toggleSignUp(): void {
